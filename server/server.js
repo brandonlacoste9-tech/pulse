@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const rateLimit = require('express-rate-limit');
 const {
   saveEmotion,
   getLastSubmission,
@@ -13,10 +14,18 @@ const {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Rate limiter for API endpoints
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.'
+});
+
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
+app.use('/api', apiLimiter); // Apply rate limiting to all API routes
 
 // Constants
 const ONE_HOUR = 60 * 60 * 1000; // 1 hour in milliseconds
