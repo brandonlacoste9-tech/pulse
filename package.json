@@ -1,0 +1,30 @@
+{
+  "name": "pulse",
+  "version": "1.0.0",
+  "description": "emoji for the world",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonlacoste9-tech/pulse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonlacoste9-tech/pulse/issues"
+  },
+  "homepage": "https://github.com/brandonlacoste9-tech/pulse#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
