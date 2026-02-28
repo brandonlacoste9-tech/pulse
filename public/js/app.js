@@ -11,6 +11,8 @@ if (!userId) {
 // State
 let canSubmit = true;
 let countdownInterval = null;
+let statsInterval = null;
+let emotionsInterval = null;
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
   loadLiveEmotions();
   
   // Refresh data periodically
-  setInterval(loadGlobalStats, 30000); // Every 30 seconds
-  setInterval(loadLiveEmotions, 60000); // Every minute
+  statsInterval = setInterval(loadGlobalStats, 30000); // Every 30 seconds
+  emotionsInterval = setInterval(loadLiveEmotions, 60000); // Every minute
 });
 
 // Generate UUID
@@ -200,6 +202,7 @@ function hideRateLimitMessage() {
 // Start countdown
 function startCountdown(timeRemaining) {
   const countdownEl = document.getElementById('countdown');
+  const startTime = Date.now();
   
   // Clear existing interval
   if (countdownInterval) {
@@ -208,9 +211,10 @@ function startCountdown(timeRemaining) {
 
   // Update every second
   countdownInterval = setInterval(() => {
-    timeRemaining -= 1000;
+    const elapsed = Date.now() - startTime;
+    const remaining = timeRemaining - elapsed;
     
-    if (timeRemaining <= 0) {
+    if (remaining <= 0) {
       clearInterval(countdownInterval);
       enableEmojis();
       hideRateLimitMessage();
@@ -218,8 +222,8 @@ function startCountdown(timeRemaining) {
       return;
     }
 
-    const minutes = Math.floor(timeRemaining / 60000);
-    const seconds = Math.floor((timeRemaining % 60000) / 1000);
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
     countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }, 1000);
   
@@ -297,3 +301,19 @@ async function loadLiveEmotions() {
     console.error('Error loading live emotions:', error);
   }
 }
+
+// Cleanup function to clear intervals
+function cleanup() {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+  if (statsInterval) {
+    clearInterval(statsInterval);
+  }
+  if (emotionsInterval) {
+    clearInterval(emotionsInterval);
+  }
+}
+
+// Clean up intervals when page is unloaded
+window.addEventListener('beforeunload', cleanup);

@@ -1,12 +1,15 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+// Database path - can be configured via environment variable
+const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'pulse.db');
+
 // Initialize database
-const db = new sqlite3.Database(path.join(__dirname, 'pulse.db'), (err) => {
+const db = new sqlite3.Database(DB_PATH, (err) => {
   if (err) {
     console.error('Error opening database:', err.message);
   } else {
-    console.log('Connected to the SQLite database.');
+    console.log(`Connected to the SQLite database at ${DB_PATH}`);
   }
 });
 
