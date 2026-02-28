@@ -206,26 +206,6 @@ function startCountdown(timeRemaining) {
     clearInterval(countdownInterval);
   }
 
-  const updateCountdown = () => {
-    const now = Date.now();
-    const remaining = timeRemaining - (Date.now() - now);
-    
-    if (remaining <= 0) {
-      clearInterval(countdownInterval);
-      enableEmojis();
-      hideRateLimitMessage();
-      countdownEl.textContent = '';
-      return;
-    }
-
-    const minutes = Math.floor(remaining / 60000);
-    const seconds = Math.floor((remaining % 60000) / 1000);
-    countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-  };
-
-  // Update immediately
-  updateCountdown();
-  
   // Update every second
   countdownInterval = setInterval(() => {
     timeRemaining -= 1000;
@@ -242,6 +222,11 @@ function startCountdown(timeRemaining) {
     const seconds = Math.floor((timeRemaining % 60000) / 1000);
     countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }, 1000);
+  
+  // Update immediately to show initial time
+  const minutes = Math.floor(timeRemaining / 60000);
+  const seconds = Math.floor((timeRemaining % 60000) / 1000);
+  countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
 // Enable emoji buttons
