@@ -3,6 +3,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
+// One hour in milliseconds
+const ONE_HOUR_MS = 60 * 60 * 1000;
+
 export default function Home() {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [canVote, setCanVote] = useState(true);
@@ -34,11 +37,10 @@ export default function Home() {
     const lastVoteTime = localStorage.getItem('lastVoteTime');
     if (lastVoteTime) {
       const timeSinceLastVote = Date.now() - parseInt(lastVoteTime);
-      const oneHour = 60 * 60 * 1000;
       
-      if (timeSinceLastVote < oneHour) {
+      if (timeSinceLastVote < ONE_HOUR_MS) {
         setCanVote(false);
-        const nextTime = parseInt(lastVoteTime) + oneHour;
+        const nextTime = parseInt(lastVoteTime) + ONE_HOUR_MS;
         setNextVoteTime(nextTime);
         
         // Set up a timer to re-enable voting
@@ -80,7 +82,7 @@ export default function Home() {
         localStorage.setItem('lastVoteTime', Date.now().toString());
         setCanVote(false);
         setSubmitted(true);
-        const nextTime = Date.now() + (60 * 60 * 1000);
+        const nextTime = Date.now() + ONE_HOUR_MS;
         setNextVoteTime(nextTime);
         
         // Refresh global data
@@ -91,7 +93,7 @@ export default function Home() {
           setCanVote(true);
           setNextVoteTime(null);
           setSubmitted(false);
-        }, 60 * 60 * 1000);
+        }, ONE_HOUR_MS);
       }
     } catch (error) {
       console.error('Error submitting emotion:', error);

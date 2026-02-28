@@ -35,7 +35,7 @@ These individual moments combine to create something extraordinary - a real-time
 
 ### Prerequisites
 
-- Node.js 14+ installed
+- Node.js 20.9.0+ installed
 - npm or yarn package manager
 
 ### Installation

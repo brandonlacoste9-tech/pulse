@@ -1,6 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
+// Maximum number of historical entries to keep
+const MAX_HISTORY_ENTRIES = 10000;
+
+// Number of characters to show from IP for privacy (rest is masked)
+const IP_PREFIX_LENGTH = 10;
+
 const dataFilePath = path.join(process.cwd(), 'data', 'emotions.json');
 
 // Ensure data directory and file exist
@@ -71,12 +77,12 @@ export default function handler(req, res) {
       data.history.push({
         emoji,
         timestamp,
-        ip: ip.substring(0, 10) + '...', // Partial IP for privacy
+        ip: ip.substring(0, IP_PREFIX_LENGTH) + '...', // Partial IP for privacy
       });
       
-      // Keep only last 10000 entries in history
-      if (data.history.length > 10000) {
-        data.history = data.history.slice(-10000);
+      // Keep only last entries in history to prevent unbounded growth
+      if (data.history.length > MAX_HISTORY_ENTRIES) {
+        data.history = data.history.slice(-MAX_HISTORY_ENTRIES);
       }
       
       writeData(data);
