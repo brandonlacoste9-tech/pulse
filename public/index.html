@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse - Feel the World</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="description" content="Tap one emoji per hour to express how you feel. See the world's emotions in real-time.">
+  <meta property="og:title" content="Pulse - Global Emotion Map">
+  <meta property="og:description" content="Join millions sharing their emotions. One tap. One hour. The world's heartbeat.">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="pulse-icon">🫀</span>
+        <h1>PULSE</h1>
+      </div>
+      <p class="tagline">Feel the World, One Emoji at a Time</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- User Section -->
+      <section class="user-section" id="userSection">
+        <div class="emotion-prompt">
+          <h2>How do you feel right now?</h2>
+          <p class="instruction">Tap one emoji to share your emotion with the world</p>
+        </div>
+
+        <!-- Emoji Picker -->
+        <div class="emoji-grid" id="emojiGrid">
+          <button class="emoji-btn" data-emoji="😊" title="Happy">😊</button>
+          <button class="emoji-btn" data-emoji="😢" title="Sad">😢</button>
+          <button class="emoji-btn" data-emoji="😠" title="Angry">😠</button>
+          <button class="emoji-btn" data-emoji="😰" title="Anxious">😰</button>
+          <button class="emoji-btn" data-emoji="😍" title="Love">😍</button>
+          <button class="emoji-btn" data-emoji="🤔" title="Thinking">🤔</button>
+          <button class="emoji-btn" data-emoji="😴" title="Tired">😴</button>
+          <button class="emoji-btn" data-emoji="🤗" title="Grateful">🤗</button>
+          <button class="emoji-btn" data-emoji="🎉" title="Excited">🎉</button>
+          <button class="emoji-btn" data-emoji="💪" title="Motivated">💪</button>
+          <button class="emoji-btn" data-emoji="🙏" title="Peaceful">🙏</button>
+          <button class="emoji-btn" data-emoji="❤️" title="Loving">❤️</button>
+        </div>
+
+        <!-- Rate Limit Message -->
+        <div class="rate-limit-message" id="rateLimitMessage" style="display: none;">
+          <p class="rate-limit-text">
+            <span class="emoji-display" id="lastEmoji"></span>
+            <span id="rateLimitText"></span>
+          </p>
+          <div class="countdown" id="countdown"></div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage" style="display: none;">
+          <span class="success-emoji" id="successEmoji"></span>
+          <p>Your emotion has been shared!</p>
+        </div>
+      </section>
+
+      <!-- Global Stats Section -->
+      <section class="stats-section">
+        <h3>🌍 Global Pulse (Last Hour)</h3>
+        <div class="global-stats" id="globalStats">
+          <div class="stats-loading">Loading global emotions...</div>
+        </div>
+      </section>
+
+      <!-- Live Feed -->
+      <section class="live-feed-section">
+        <h3>💫 Live Emotional Pulse</h3>
+        <div class="total-count" id="totalCount">
+          <span class="count-number">0</span>
+          <span class="count-label">emotions shared in 24 hours</span>
+        </div>
+        <div class="live-emotions" id="liveEmotions">
+          <div class="emotions-loading">Loading live emotions...</div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h3>About Pulse</h3>
+        <div class="about-content">
+          <div class="about-item">
+            <span class="about-emoji">🫀</span>
+            <h4>1 Second to Participate</h4>
+            <p>Zero friction. Just tap and share.</p>
+          </div>
+          <div class="about-item">
+            <span class="about-emoji">🌐</span>
+            <h4>Universal Language</h4>
+            <p>Emojis transcend all barriers.</p>
+          </div>
+          <div class="about-item">
+            <span class="about-emoji">📸</span>
+            <h4>Living History</h4>
+            <p>An emotional archive of humanity.</p>
+          </div>
+          <div class="about-item">
+            <span class="about-emoji">🤖</span>
+            <h4>100% Human</h4>
+            <p>Real emotions from real people.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>🫀 Pulse - The World's Emotional Heartbeat</p>
+      <p class="footer-note">One tap per hour. Make it count.</p>
+    </footer>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
