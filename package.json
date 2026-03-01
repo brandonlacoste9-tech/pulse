@@ -9,10 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dotenv": "^17.3.1",
+    "html2canvas": "^1.4.1",
+    "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-globe.gl": "^2.24.13",
-    "three": "^0.160.0"
+    "react-globe.gl": "^2.37.0",
+    "snoowrap": "^1.23.0",
+    "three": "^0.183.2",
+    "twitter-api-v2": "^1.29.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

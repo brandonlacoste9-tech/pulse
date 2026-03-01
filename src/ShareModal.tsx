@@ -15,7 +15,7 @@ const SHARE_OPTIONS = [
 
 export default function ShareModal({ onClose }: ShareModalProps) {
   const [copied, setCopied] = useState(false)
-  
+
   const shareUrl = window.location.origin + window.location.pathname
   const shareText = "Check out PULSE - a mood sharing app! Share your feelings with the world 🌍"
 
@@ -32,7 +32,7 @@ export default function ShareModal({ onClose }: ShareModalProps) {
   const handleShare = (id: string) => {
     const encodedUrl = encodeURIComponent(shareUrl)
     const encodedText = encodeURIComponent(shareText)
-    
+
     switch (id) {
       case 'twitter':
         window.open(`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`, '_blank')
@@ -76,25 +76,25 @@ export default function ShareModal({ onClose }: ShareModalProps) {
     <div className="share-modal-overlay" onClick={onClose}>
       <div className="share-modal" onClick={e => e.stopPropagation()}>
         <button className="share-modal-close" onClick={onClose}>✕</button>
-        
+
         <h3>📤 Share with Friends</h3>
         <p className="share-subtitle">Invite friends to join PULSE!</p>
-        
+
         {/* Native share button for mobile */}
-        {navigator.share && (
+        {!!navigator.share && (
           <button className="share-native-btn" onClick={handleNativeShare}>
             <span>📱</span>
             <span>Share using device</span>
           </button>
         )}
-        
+
         <div className="share-divider">
           <span>or</span>
         </div>
-        
+
         <div className="share-options">
           {SHARE_OPTIONS.map(option => (
-            <button 
+            <button
               key={option.id}
               className="share-option"
               onClick={() => handleShare(option.id)}
@@ -106,7 +106,7 @@ export default function ShareModal({ onClose }: ShareModalProps) {
             </button>
           ))}
         </div>
-        
+
         <div className="share-preview">
           <p>🔗 {shareUrl}</p>
         </div>

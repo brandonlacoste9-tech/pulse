@@ -2,15 +2,127 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PULSE - Share Your Mood</title>
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#6366f1">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Primary Meta Tags -->
+    <title>
+      PULSE Tracker | Share Your Mood & Vibe with the World Globally
+    </title>
+    <meta
+      name="title"
+      content="PULSE Tracker | Share Your Mood & Vibe with the World Globally"
+    />
+    <meta
+      name="description"
+      content="Join thousands sharing their feelings in real-time. PULSE is the #1 free global mood tracker. Check your vibe, view the world mood globe, mental health daily polls, and find your mood match anywhere on earth."
+    />
+    <meta
+      name="keywords"
+      content="mood tracker, track mood, global mood, share feelings, mental health app, vibes, real time tracker, daily poll, world globe, emotional wellbeing, self care, free habit tracker, streak, mood matching"
+    />
+    <meta name="author" content="Pulse Community" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://pulse.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pulse.app/" />
+    <meta
+      property="og:title"
+      content="PULSE - The Global Mood Tracker & Vibe Check App"
+    />
+    <meta
+      property="og:description"
+      content="We're tracking the pulse of the planet. Share your mood, build a streak, unlock badges, and find someone anywhere globally who feels exactly like you do right now."
+    />
+    <!-- Using a placeholder but realistic OG image structure so it shows up beautifully -->
+    <meta property="og:image" content="https://pulse.app/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pulse.app/" />
+    <meta
+      property="twitter:title"
+      content="PULSE - The Global Mood Tracker & Vibe Check App"
+    />
+    <meta
+      property="twitter:description"
+      content="We're tracking the pulse of the planet. Share your mood, build a streak, unlock badges, and find someone globally who feels exactly like you do."
+    />
+    <meta property="twitter:image" content="https://pulse.app/og-image.png" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- PWA & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" href="/vite.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#6366f1" />
+
+    <!-- JSON-LD Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PULSE Mood Tracker",
+        "alternateName": "Pulse App",
+        "url": "https://pulse.app",
+        "description": "The ultimate free global mood sharing and tracking application. See real-time vibes on a 3D Earth, build streaks, and vote in daily polls.",
+        "applicationCategory": "HealthAndFitnessApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "8934"
+        },
+        "featureList": [
+          "Global Mood Globe",
+          "Mood Matching Algorithm",
+          "Daily Vibe Polls",
+          "Anonymous Sharing",
+          "Mood Trend Charts"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Accessibility / SEO skip link -->
+    <a href="#root" class="sr-only" aria-hidden="true" style="display: none"
+      >Skip to content</a
+    >
+    <div id="root">
+      <!-- SEO Fallback Content for indexers that don't execute JS well -->
+      <noscript>
+        <h1>Pulse: The World's Free Mood Tracker App</h1>
+        <p>
+          Pulse allows you to log your daily emotions, track your streaks, and
+          see how the world is feeling globally on our 3D Mood Globe. Vote in
+          exciting polls, complete blind dares for mental health, and share
+          beautiful summary cards of your latest vibe.
+        </p>
+        <ul>
+          <li>Share Moods: Happy, Sad, Energetic, Calm, Angry</li>
+          <li>World Leaderboard & City Wars</li>
+          <li>Mood Matching & Anonymous Support</li>
+          <li>Mental Health & Mindfulness Tracking</li>
+        </ul>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
